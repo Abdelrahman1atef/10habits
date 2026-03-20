@@ -1,32 +1,15 @@
-import 'package:abher/core/utils/extensions.dart';
-import 'package:abher/src/feature/anchors/router/anchors_router.dart';
-import 'package:abher/src/feature/home/router/home_router.dart';
-import 'package:abher/src/feature/order_and_checkout/router/order_and_checkout_router.dart';
-import 'package:abher/src/feature/private_order/router/private_order_router.dart';
-import 'package:abher/src/feature/section/router/section_router.dart';
-import 'package:abher/src/feature/chat/router/chat_router.dart';
-import 'package:abher/src/feature/favourites/router/favourites_router.dart';
-import 'package:abher/src/feature/notifications/router/notifications_router.dart';
-import 'package:abher/src/feature/profile/router/profile_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:abher/src/feature/auth/router/auth_router.dart';
-import 'package:abher/src/feature/intro/router/intro_router.dart';
-import '../../src/feature/boat_details/router/boat_details_router.dart';
-import '../../src/feature/book_now/router/book_now_router.dart';
-import '../../src/feature/order_now/router/order_now_router.dart';
-import '../../src/feature/reservation/router/reservation_router.dart';
-import '../../src/feature/my_orders/router/my_orders_router.dart';
-import '../../src/feature/order_details/router/order_details_router.dart';
+import 'package:habits10/core/utils/extensions.dart';
 import 'router_names.dart';
 
 /// GoRouter configuration
 class AppRouter {
-  static String initialRoute = AppRoutes.orderDetails;
+  static String initialRoute = AppRoutes.splash;
 
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
@@ -39,22 +22,7 @@ class AppRouter {
     routes: [
       // Feature Routers
       ...IntroRouter.routes,
-      ...AuthRouter.routes,
-      ...HomeRouter.routes,
-      ...AnchorsRouter.routes,
-      ...BoatDetailsRouter.routes,
-      ...ReservationRouter.routes,
-      ...OrderNowRouter.routes,
-      ...OrderAndCheckoutRouter.routes,
-      ...SectionRouter.routes,
-      ...BookNowRouter.routes,
-      ...PrivateOrderRouter.routes,
-      ...ChatRouter.routes,
-      ...FavouritesRouter.routes,
-      ...NotificationsRouter.routes,
-      ...ProfileRouter.routes,
-      ...MyOrdersRouter.routes,
-      ...OrderDetailsRouter.routes,
+      
     ],
 
     // Error page
