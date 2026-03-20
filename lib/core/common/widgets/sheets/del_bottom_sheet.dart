@@ -1,5 +1,5 @@
-import 'package:abher/core/common/widgets/buttons/lokali_button.dart';
-import 'package:abher/core/common/widgets/sheets/abher_sheet.dart';
+import 'package:habits10/core/common/widgets/buttons/habits_button.dart';
+import 'package:habits10/core/common/widgets/sheets/habits_sheet.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -22,18 +22,18 @@ class DelBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AbherSheet(
+    return HabitsSheet(
       icon: icon ?? "del_bottom_sheet",
       title: titleKey.tr(),
       description: subKey.tr(),
       primaryButtonText: (delButtonKey ?? "del").tr(),
-      primaryButtonVariant: AbherButtonVariant.danger,
+      primaryButtonVariant: HabitsButtonVariant.danger,
       onPrimaryPressed: () {
         context.pop();
         onDel();
       },
       secondaryButtonText: "cancel".tr(),
-      secondaryButtonVariant: AbherButtonVariant.ghost,
+      secondaryButtonVariant: HabitsButtonVariant.ghost,
       onSecondaryPressed: () => context.pop(),
     );
   }

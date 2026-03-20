@@ -1,4 +1,4 @@
-/// Network configuration for the application - Abher App
+/// Network configuration for the application - Habits App
 class NetworkConfig {
   final String baseUrl;
   final Duration connectTimeout;

@@ -1,9 +1,9 @@
-import 'package:abher/core/theme/app_colors.dart';
-import 'package:abher/core/theme/app_typography.dart';
-import 'package:abher/core/common/widgets/buttons/custom_button.dart';
-import 'package:abher/core/common/widgets/sheets/custom_bottom_sheet.dart';
-import 'package:abher/core/app_strings/app_strings.dart';
-import 'package:abher/src/feature/intro/presentation/widgets/language_list_widget.dart';
+import 'package:habits10/core/theme/app_colors.dart';
+import 'package:habits10/core/theme/app_typography.dart';
+import 'package:habits10/core/common/widgets/buttons/custom_button.dart';
+import 'package:habits10/core/common/widgets/sheets/custom_bottom_sheet.dart';
+import 'package:habits10/core/app_strings/app_strings.dart';
+import 'package:habits10/src/features/intro/presentation/widgets/language_list_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +42,7 @@ class _LanguageBottomSheetSectionState
           widget.onContinue();
         },
         text: AppStrings.continueBtn.tr(),
-        backgroundColor: AppColors.primaryTeal,
+        backgroundColor: AppColors.primaryGreen,
         textColor: AppColors.white,
         borderRadius: BorderRadius.circular(30),
         padding: const EdgeInsets.symmetric(vertical: 18),

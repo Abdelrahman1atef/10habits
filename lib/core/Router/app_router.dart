@@ -5,6 +5,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:habits10/core/utils/extensions.dart';
+import 'package:habits10/src/features/intro/router/intro_router.dart';
 import 'router_names.dart';
 
 /// GoRouter configuration

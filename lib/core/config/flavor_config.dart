@@ -25,7 +25,18 @@ class FlavorConfig {
     this.appTitle,
   );
 
+  static bool get isInitialized => _instance != null;
+
   static FlavorConfig get instance {
+    if (_instance == null) {
+      // Return a safe default instead of crashing with !
+      return FlavorConfig._internal(
+        Flavor.DEV,
+        'DEV',
+        'https://api.example.com',
+        '10Habits',
+      );
+    }
     return _instance!;
   }
 

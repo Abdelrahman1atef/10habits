@@ -1,4 +1,5 @@
-import 'package:abher/core/network/config/network_config.dart';
+
+import '../network/config/network_config.dart';
 
 class PusherConfig {
   static const String appId = '2103481';

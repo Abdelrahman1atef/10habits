@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:abher/core/extensions/widget_extensions.dart';
-import 'package:abher/core/services/alerts.dart';
-import 'package:abher/core/theme/app_colors.dart';
-import 'package:abher/core/utils/extensions.dart';
+import 'package:habits10/core/extensions/widget_extensions.dart';
+import 'package:habits10/core/services/alerts.dart';
+import 'package:habits10/core/theme/app_colors.dart';
+import 'package:habits10/core/utils/extensions.dart';
 import 'package:lottie/lottie.dart';
 
 class SnackDesgin extends StatelessWidget {

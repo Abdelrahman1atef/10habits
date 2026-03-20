@@ -1,6 +1,6 @@
-import 'package:abher/core/theme/app_colors.dart';
-import 'package:abher/core/theme/app_typography.dart';
-import 'package:abher/core/utils/extensions.dart';
+import 'package:habits10/core/theme/app_colors.dart';
+import 'package:habits10/core/theme/app_typography.dart';
+import 'package:habits10/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';

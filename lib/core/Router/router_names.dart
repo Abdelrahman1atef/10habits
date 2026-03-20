@@ -1,4 +1,4 @@
-/// Global app route paths for Abher Application
+/// Global app route paths for Habits Application
 abstract class AppRoutes {
   // ==================== AUTH ====================
   static const String splash = '/';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:abher/core/theme/app_typography.dart';
-import 'package:abher/core/theme/app_colors.dart';
+import 'package:habits10/core/theme/app_typography.dart';
+import 'package:habits10/core/theme/app_colors.dart';
 
 class SkipTextButton extends StatelessWidget {
   const SkipTextButton({super.key, this.onTap, this.color});

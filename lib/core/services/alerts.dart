@@ -1,4 +1,4 @@
-import 'package:abher/core/common/widgets/snackbars/custom_toast_widget.dart';
+import 'package:habits10/core/common/widgets/snackbars/custom_toast_widget.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -176,7 +176,7 @@ class Alerts {
     BotToast.showCustomText(
       align: Alignment.center,
       onlyOne: true,
-      toastBuilder: (s) => AbherToastWidget(state: state, text: text),
+      toastBuilder: (s) => HabitsToastWidget(state: state, text: text),
     );
   }
 }

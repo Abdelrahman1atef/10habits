@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:abher/core/app_strings/app_strings.dart';
-import 'package:abher/core/theme/app_colors.dart';
-import 'package:abher/core/theme/app_typography.dart';
-import 'package:abher/core/utils/extensions.dart';
+import 'package:habits10/core/app_strings/app_strings.dart';
+import 'package:habits10/core/theme/app_colors.dart';
+import 'package:habits10/core/theme/app_typography.dart';
+import 'package:habits10/core/utils/extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

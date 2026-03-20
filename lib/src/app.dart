@@ -3,7 +3,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:habits10/core/Router/app_router.dart';
-import 'package:habits10/core/common/widgets/layout/abher_responsive_wrapper.dart';
+import 'package:habits10/core/common/widgets/layout/Habits_responsive_wrapper.dart';
 import 'package:habits10/core/config/flavor_config.dart';
 import 'package:habits10/core/theme/theme_manager.dart';
 
@@ -18,8 +18,8 @@ class Habits10 extends StatelessWidget {
         return MaterialApp.router(
           title: FlavorConfig.instance.appTitle,
           debugShowCheckedModeBanner: false,
-          theme: AppThemeManager.lightTheme,
-          darkTheme: AppThemeManager.darkTheme,
+          theme: AppThemeManager.getThemeData(Brightness.light, context.locale),
+          darkTheme: AppThemeManager.getThemeData(Brightness.dark, context.locale),
           themeMode: themeMode,
           routerConfig: AppRouter.router,
           localizationsDelegates: context.localizationDelegates,

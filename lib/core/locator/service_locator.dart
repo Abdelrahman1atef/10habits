@@ -1,4 +1,3 @@
-import 'package:abher/src/feature/anchors/di/anchors_di.dart';
 import 'package:get_it/get_it.dart';
 
 import '../network/impl/dio_consumer.dart';
@@ -12,15 +11,7 @@ import '../cache/init_hive.dart';
 import '../cache/cache_helper.dart';
 
 // Import feature DI setups
-import 'package:abher/src/feature/intro/di/intro_di.dart';
-import 'package:abher/src/feature/auth/di/auth_di.dart';
-import 'package:abher/src/feature/home/di/home_di.dart';
-import 'package:abher/src/feature/chat/di/chat_di.dart';
-import 'package:abher/src/feature/favourites/di/favourites_di.dart';
-import 'package:abher/src/feature/notifications/di/notifications_di.dart';
-import 'package:abher/src/feature/profile/di/profile_di.dart';
-import 'package:abher/src/feature/my_orders/di/my_orders_di.dart';
-import 'package:abher/src/feature/order_details/di/order_details_di.dart';
+import 'package:habits10/src/features/intro/di/intro_di.dart';
 
 /// Global service locator instance
 final GetIt sl = GetIt.instance;
@@ -59,14 +50,5 @@ class ServiceLocator {
 
     // Register feature services
     IntroDI.setup();
-    AuthDI.setup();
-    HomeDI.setup();
-    ChatDI.setup();
-    FavouritesDI.setup();
-    NotificationsDI.setup();
-    AnchorsDI.setup();
-    ProfileDI.setup();
-    MyOrdersDI.setup();
-    OrderDetailsDI.setup();
   }
 }

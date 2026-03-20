@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:abher/core/utils/extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:abher/core/services/media/my_media.dart';
 
+import '../../utils/extensions.dart';
 import '../alerts.dart';
 import 'item_of_contact.dart';
+import 'my_media.dart';
 
 class AlertOfMedia extends StatelessWidget {
   const AlertOfMedia({

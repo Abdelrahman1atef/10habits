@@ -1,10 +1,10 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:abher/core/theme/app_colors.dart';
-import 'package:abher/core/theme/app_typography.dart';
+import 'package:habits10/core/theme/app_colors.dart';
+import 'package:habits10/core/theme/app_typography.dart';
 
-class AbherSnackbar {
+class HabitsSnackbar {
   static void showSuccess(
     BuildContext context, {
     required String message,

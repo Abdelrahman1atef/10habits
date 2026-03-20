@@ -1,38 +1,80 @@
 import 'package:flutter/material.dart';
 
-/// نظام الخطوط - Typography System
-/// تم تنظيم الملف باستخدام أصناف مجردة (abstract classes) لتقسيم المسؤوليات
+/// Typography system for the Habits app.
+/// Uses 'Cairo' for Arabic and 'Inter' for English.
 abstract class AppStyles {
-  static const String fontFamily = 'Bukra';
+  static const String arabicFontFamily = 'Cairo';
+  static const String englishFontFamily = 'Inter';
+  static const String quranFontFamily = 'AmiriQuran';
 
-  // ==================== COMPATIBILITY ALIASES ====================
-  // يمكن استدعاء هذه الأنماط مباشرة من AppStyles للحفاظ على سهولة الكود الحالي
-  static TextStyle get s10Medium => AppTextSizes.s10.medium;
-  static TextStyle get s10Bold => AppTextSizes.s10.bold;
+  static String getFontFamily(Locale locale) {
+    return locale.languageCode == 'ar' ? arabicFontFamily : englishFontFamily;
+  }
 
-  static TextStyle get s12Medium => AppTextSizes.s12.medium;
-  static TextStyle get s12Bold => AppTextSizes.s12.bold;
-  static TextStyle get s13Medium => AppTextSizes.s13.medium;
-  static TextStyle get s13Bold => AppTextSizes.s13.bold;
-  static TextStyle get s14Light => AppTextSizes.s14.light;
-  static TextStyle get s14Medium => AppTextSizes.s14.medium;
-  static TextStyle get s14SemiBold => AppTextSizes.s14.semiBold;
-  static TextStyle get s14Bold => AppTextSizes.s14.bold;
-  static TextStyle get s16Medium => AppTextSizes.s16.medium;
-  static TextStyle get s16SemiBold => AppTextSizes.s16.semiBold;
-  static TextStyle get s16Bold => AppTextSizes.s16.bold;
-  static TextStyle get s18Medium => AppTextSizes.s18.medium;
-  static TextStyle get s18Bold => AppTextSizes.s18.bold;
-  static TextStyle get s20SemiBold => AppTextSizes.s20.semiBold;
-  static TextStyle get s20Bold => AppTextSizes.s20.bold;
-  static TextStyle get s24Bold => AppTextSizes.s24.bold;
-  static TextStyle get s26Bold => AppTextSizes.s26.bold;
+  static TextTheme createTextTheme(Locale locale) {
+    final fontFamily = getFontFamily(locale);
+
+    return TextTheme(
+      displayLarge: TextStyle(fontSize: 56, fontWeight: FontWeight.bold, height: 1.2),
+      displayMedium: TextStyle(fontSize: 45, fontWeight: FontWeight.bold, height: 1.2),
+      displaySmall: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, height: 1.2),
+      headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, height: 1.2),
+      headlineMedium: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, height: 1.2),
+      headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, height: 1.2),
+      titleLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, height: 1.2),
+      titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
+      titleSmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 1.2),
+      bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.normal, height: 1.5),
+      bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.normal, height: 1.5),
+      bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, height: 1.5),
+      labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 1.2),
+      labelMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, height: 1.2),
+      labelSmall: TextStyle(fontSize: 11, fontWeight: FontWeight.w500, height: 1.2),
+    ).apply(
+      fontFamily: fontFamily,
+    );
+  }
+
+  static TextStyle get quranText => const TextStyle(
+        fontFamily: quranFontFamily,
+        fontSize: 28,
+        height: 2.0,
+      );
+
+  // ==================== LEGACY ALIASES (FOR BACKWARD COMPATIBILITY) ====================
+  
+  static TextStyle _base(double size, {FontWeight weight = FontWeight.normal}) => TextStyle(
+    fontFamily: englishFontFamily,
+    fontSize: size,
+    fontWeight: weight,
+    height: 1.2,
+  );
+
+  static TextStyle get s10Medium => _base(10, weight: FontWeight.w500);
+  static TextStyle get s10Bold => _base(10, weight: FontWeight.bold);
+  static TextStyle get s12Medium => _base(12, weight: FontWeight.w500);
+  static TextStyle get s12Bold => _base(12, weight: FontWeight.bold);
+  static TextStyle get s13Medium => _base(13, weight: FontWeight.w500);
+  static TextStyle get s13Bold => _base(13, weight: FontWeight.bold);
+  static TextStyle get s14Light => _base(14, weight: FontWeight.w300);
+  static TextStyle get s14Medium => _base(14, weight: FontWeight.w500);
+  static TextStyle get s14SemiBold => _base(14, weight: FontWeight.w600);
+  static TextStyle get s14Bold => _base(14, weight: FontWeight.bold);
+  static TextStyle get s16Medium => _base(16, weight: FontWeight.w500);
+  static TextStyle get s16SemiBold => _base(16, weight: FontWeight.w600);
+  static TextStyle get s16Bold => _base(16, weight: FontWeight.bold);
+  static TextStyle get s18Medium => _base(18, weight: FontWeight.w500);
+  static TextStyle get s18Bold => _base(18, weight: FontWeight.bold);
+  static TextStyle get s20SemiBold => _base(20, weight: FontWeight.w600);
+  static TextStyle get s20Bold => _base(20, weight: FontWeight.bold);
+  static TextStyle get s24Bold => _base(24, weight: FontWeight.bold);
+  static TextStyle get s26Bold => _base(26, weight: FontWeight.bold);
 }
 
-/// الأصناف الأساسية للأحجام - Base Text Sizes
+/// Legacy helper for text sizes
 abstract class AppTextSizes {
   static TextStyle _base(double size) => TextStyle(
-    fontFamily: AppStyles.fontFamily,
+    fontFamily: AppStyles.englishFontFamily,
     fontSize: size,
     fontWeight: FontWeight.w400,
     height: 1.2,
@@ -51,19 +93,11 @@ abstract class AppTextSizes {
   static TextStyle get s32 => _base(32);
 }
 
-/// أنماط النصوص المعيارية - Semantic Styles
-abstract class AppSemanticStyles {
-  static TextStyle get h1 => AppTextSizes.s32.bold;
-  static TextStyle get h2 => AppTextSizes.s24.bold;
-  static TextStyle get h3 => AppTextSizes.s20.semiBold;
-
-  static TextStyle get title => AppTextSizes.s18.medium;
-  static TextStyle get body => AppTextSizes.s16.regular;
-  static TextStyle get caption => AppTextSizes.s12.regular;
-  static TextStyle get button => AppTextSizes.s16.semiBold;
+/// Helper extension to access styles directly from context
+extension AppStylesX on BuildContext {
+  TextTheme get textTheme => Theme.of(this).textTheme;
 }
 
-/// ملحقات لتسهيل التحكم بالأوزان والألوان - Style Extensions
 extension TextStyleX on TextStyle {
   TextStyle get light => copyWith(fontWeight: FontWeight.w300);
   TextStyle get regular => copyWith(fontWeight: FontWeight.w400);

@@ -118,8 +118,12 @@ flutter:
 
   # To add custom fonts to your application, add a fonts section here,
   fonts:
-    - family: Bukra
+    - family: AmiriQuran
       fonts:
-        - asset: assets/fonts/Bukra-Regular.ttf
-        - asset: assets/fonts/Bukra-Bold.ttf
-          weight: 700
+        - asset: assets/fonts/amiri_quran_regular.ttf
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/cairo.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter.ttf

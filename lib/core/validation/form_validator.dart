@@ -1,4 +1,4 @@
-import 'package:abher/core/app_strings/app_strings.dart';
+import 'package:habits10/core/app_strings/app_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class FormValidator {

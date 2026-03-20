@@ -1,14 +1,14 @@
 import 'dart:async';
-import 'package:abher/core/common/widgets/indicators/abher_loading.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import '../../common/widgets/indicators/habits_loading.dart';
+import '../../error/error_handler.dart';
 import '../interfaces/api_consumer.dart';
 import '../interfaces/network_info.dart';
 import '../config/network_config.dart';
 import '../interceptors/auth_interceptor.dart';
 import '../interceptors/retry_interceptor.dart';
-import 'package:abher/core/error/error_handler.dart';
 import '../../error/failures.dart';
 import '../../utils/utils.dart';
 import '../../session/user_session.dart';
@@ -111,17 +111,17 @@ class DioConsumer implements ApiConsumer {
       return ApiResult.failure(NoInternetFailure());
     }
 
-    if (showLoading) AbherLoading.show();
+    if (showLoading) HabitsLoading.show();
     try {
       final response = await request();
-      if (showLoading) AbherLoading.dismis();
+      if (showLoading) HabitsLoading.dismis();
 
       if (parser != null) {
         return ApiResult.success(parser(response.data));
       }
       return ApiResult.success(response.data as T);
     } catch (e) {
-      if (showLoading) AbherLoading.dismis();
+      if (showLoading) HabitsLoading.dismis();
       if (e is DioException) {
         return ApiResult.failure(ErrorHandler.handleDioException(e));
       }
@@ -277,7 +277,7 @@ class DioConsumer implements ApiConsumer {
     void Function(int received, int total)? onProgress,
     bool showLoading = false,
   }) async {
-    if (showLoading) AbherLoading.show();
+    if (showLoading) HabitsLoading.show();
     try {
       _updateHeaders(method: 'GET');
       await _dio.download(
@@ -287,13 +287,13 @@ class DioConsumer implements ApiConsumer {
         options: Options(headers: headers),
         onReceiveProgress: onProgress,
       );
-      if (showLoading) AbherLoading.dismis();
+      if (showLoading) HabitsLoading.dismis();
       return ApiResult.success(savePath);
     } on DioException catch (e) {
-      if (showLoading) AbherLoading.dismis();
+      if (showLoading) HabitsLoading.dismis();
       return ApiResult.failure(ErrorHandler.handleDioException(e));
     } catch (e, stackTrace) {
-      if (showLoading) AbherLoading.dismis();
+      if (showLoading) HabitsLoading.dismis();
       return ApiResult.failure(
         UnknownFailure(
           message: e.toString(),
