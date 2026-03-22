@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 /// Typography system for the Habits app.
@@ -15,21 +16,21 @@ abstract class AppStyles {
     final fontFamily = getFontFamily(locale);
 
     return TextTheme(
-      displayLarge: TextStyle(fontSize: 56, fontWeight: FontWeight.bold, height: 1.2),
-      displayMedium: TextStyle(fontSize: 45, fontWeight: FontWeight.bold, height: 1.2),
-      displaySmall: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, height: 1.2),
-      headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, height: 1.2),
-      headlineMedium: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, height: 1.2),
-      headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, height: 1.2),
-      titleLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, height: 1.2),
-      titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
-      titleSmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 1.2),
-      bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.normal, height: 1.5),
-      bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.normal, height: 1.5),
-      bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, height: 1.5),
-      labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 1.2),
-      labelMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, height: 1.2),
-      labelSmall: TextStyle(fontSize: 11, fontWeight: FontWeight.w500, height: 1.2),
+      displayLarge: const TextStyle(fontSize: 56, fontVariations: [FontVariation('wght', 700)], height: 1.2),
+      displayMedium: const TextStyle(fontSize: 45, fontVariations: [FontVariation('wght', 700)], height: 1.2),
+      displaySmall: const TextStyle(fontSize: 36, fontVariations: [FontVariation('wght', 700)], height: 1.2),
+      headlineLarge: const TextStyle(fontSize: 32, fontVariations: [FontVariation('wght', 700)], height: 1.2),
+      headlineMedium: const TextStyle(fontSize: 28, fontVariations: [FontVariation('wght', 700)], height: 1.2),
+      headlineSmall: const TextStyle(fontSize: 24, fontVariations: [FontVariation('wght', 600)], height: 1.2),
+      titleLarge: const TextStyle(fontSize: 22, fontVariations: [FontVariation('wght', 600)], height: 1.2),
+      titleMedium: const TextStyle(fontSize: 18, fontVariations: [FontVariation('wght', 500)], height: 1.2),
+      titleSmall: const TextStyle(fontSize: 14, fontVariations: [FontVariation('wght', 500)], height: 1.2),
+      bodyLarge: const TextStyle(fontSize: 16, fontVariations: [FontVariation('wght', 400)], height: 1.5),
+      bodyMedium: const TextStyle(fontSize: 14, fontVariations: [FontVariation('wght', 400)], height: 1.5),
+      bodySmall: const TextStyle(fontSize: 12, fontVariations: [FontVariation('wght', 400)], height: 1.5),
+      labelLarge: const TextStyle(fontSize: 14, fontVariations: [FontVariation('wght', 500)], height: 1.2),
+      labelMedium: const TextStyle(fontSize: 12, fontVariations: [FontVariation('wght', 500)], height: 1.2),
+      labelSmall: const TextStyle(fontSize: 11, fontVariations: [FontVariation('wght', 500)], height: 1.2),
     ).apply(
       fontFamily: fontFamily,
     );
@@ -43,40 +44,38 @@ abstract class AppStyles {
 
   // ==================== LEGACY ALIASES (FOR BACKWARD COMPATIBILITY) ====================
   
-  static TextStyle _base(double size, {FontWeight weight = FontWeight.normal}) => TextStyle(
-    fontFamily: englishFontFamily,
+  static TextStyle _base(double size, {double weight = 400}) => TextStyle(
     fontSize: size,
-    fontWeight: weight,
+    fontVariations: [FontVariation('wght', weight)],
     height: 1.2,
   );
 
-  static TextStyle get s10Medium => _base(10, weight: FontWeight.w500);
-  static TextStyle get s10Bold => _base(10, weight: FontWeight.bold);
-  static TextStyle get s12Medium => _base(12, weight: FontWeight.w500);
-  static TextStyle get s12Bold => _base(12, weight: FontWeight.bold);
-  static TextStyle get s13Medium => _base(13, weight: FontWeight.w500);
-  static TextStyle get s13Bold => _base(13, weight: FontWeight.bold);
-  static TextStyle get s14Light => _base(14, weight: FontWeight.w300);
-  static TextStyle get s14Medium => _base(14, weight: FontWeight.w500);
-  static TextStyle get s14SemiBold => _base(14, weight: FontWeight.w600);
-  static TextStyle get s14Bold => _base(14, weight: FontWeight.bold);
-  static TextStyle get s16Medium => _base(16, weight: FontWeight.w500);
-  static TextStyle get s16SemiBold => _base(16, weight: FontWeight.w600);
-  static TextStyle get s16Bold => _base(16, weight: FontWeight.bold);
-  static TextStyle get s18Medium => _base(18, weight: FontWeight.w500);
-  static TextStyle get s18Bold => _base(18, weight: FontWeight.bold);
-  static TextStyle get s20SemiBold => _base(20, weight: FontWeight.w600);
-  static TextStyle get s20Bold => _base(20, weight: FontWeight.bold);
-  static TextStyle get s24Bold => _base(24, weight: FontWeight.bold);
-  static TextStyle get s26Bold => _base(26, weight: FontWeight.bold);
+  static TextStyle get s10Medium => _base(10, weight: 500);
+  static TextStyle get s10Bold => _base(10, weight: 700);
+  static TextStyle get s12Medium => _base(12, weight: 500);
+  static TextStyle get s12Bold => _base(12, weight: 700);
+  static TextStyle get s13Medium => _base(13, weight: 500);
+  static TextStyle get s13Bold => _base(13, weight: 700);
+  static TextStyle get s14Light => _base(14, weight: 300);
+  static TextStyle get s14Medium => _base(14, weight: 500);
+  static TextStyle get s14SemiBold => _base(14, weight: 600);
+  static TextStyle get s14Bold => _base(14, weight: 700);
+  static TextStyle get s16Medium => _base(16, weight: 500);
+  static TextStyle get s16SemiBold => _base(16, weight: 600);
+  static TextStyle get s16Bold => _base(16, weight: 700);
+  static TextStyle get s18Medium => _base(18, weight: 500);
+  static TextStyle get s18Bold => _base(18, weight: 700);
+  static TextStyle get s20SemiBold => _base(20, weight: 600);
+  static TextStyle get s20Bold => _base(20, weight: 700);
+  static TextStyle get s24Bold => _base(24, weight: 700);
+  static TextStyle get s26Bold => _base(26, weight: 700);
 }
 
 /// Legacy helper for text sizes
 abstract class AppTextSizes {
   static TextStyle _base(double size) => TextStyle(
-    fontFamily: AppStyles.englishFontFamily,
     fontSize: size,
-    fontWeight: FontWeight.w400,
+    fontVariations: const [FontVariation('wght', 400)],
     height: 1.2,
   );
 
@@ -99,12 +98,12 @@ extension AppStylesX on BuildContext {
 }
 
 extension TextStyleX on TextStyle {
-  TextStyle get light => copyWith(fontWeight: FontWeight.w300);
-  TextStyle get regular => copyWith(fontWeight: FontWeight.w400);
-  TextStyle get medium => copyWith(fontWeight: FontWeight.w500);
-  TextStyle get semiBold => copyWith(fontWeight: FontWeight.w600);
-  TextStyle get bold => copyWith(fontWeight: FontWeight.w700);
-  TextStyle get extraBold => copyWith(fontWeight: FontWeight.w800);
+  TextStyle get light => copyWith(fontVariations: const [FontVariation('wght', 300)]);
+  TextStyle get regular => copyWith(fontVariations: const [FontVariation('wght', 400)]);
+  TextStyle get medium => copyWith(fontVariations: const [FontVariation('wght', 500)]);
+  TextStyle get semiBold => copyWith(fontVariations: const [FontVariation('wght', 600)]);
+  TextStyle get bold => copyWith(fontVariations: const [FontVariation('wght', 700)]);
+  TextStyle get extraBold => copyWith(fontVariations: const [FontVariation('wght', 800)]);
 
   TextStyle withColor(Color color) => copyWith(color: color);
   TextStyle withSize(double size) => copyWith(fontSize: size);

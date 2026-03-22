@@ -2,22 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:habits10/core/app_strings/app_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-class OnBoardingItemWidget extends StatelessWidget {
-  const OnBoardingItemWidget({super.key});
+import '../sections/on_boarding_section.dart';
 
+class OnBoardingItemWidget extends StatelessWidget {
+  const OnBoardingItemWidget({super.key, required this.model});
+  final OnBoardingModel model;
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Icon(Icons.auto_graph, size: 100, color: Colors.green),
+        model.widget,
         const SizedBox(height: 20),
         Text(
-          AppStrings.onboardingTitle.tr(),
+          model.title,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         const SizedBox(height: 10),
-        const Text(
-          'Track your Islamic habits daily and complete the 21-day challenge.',
+         Text(
+          model.subTitle,
           textAlign: TextAlign.center,
         ),
       ],

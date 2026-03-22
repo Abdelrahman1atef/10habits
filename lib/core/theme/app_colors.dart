@@ -8,6 +8,7 @@ class AppColors {
   // ==================== BRAND COLORS (RAW) ====================
   static const Color primaryGreen = Color(0xFF2E7D6B);
   static const Color secondaryOrange = Color(0xFFF4A261);
+  static const Color tertiaryBrown = Color(0xFF8E4E14);
   static const Color backgroundLight = Color(0xFFFAF7F2);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);

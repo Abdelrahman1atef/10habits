@@ -113,7 +113,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-#    - assets/lottie/
+    - assets/lottie/
     - assets/translation/
 
   # To add custom fonts to your application, add a fonts section here,

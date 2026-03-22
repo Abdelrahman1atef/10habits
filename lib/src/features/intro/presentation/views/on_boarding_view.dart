@@ -8,6 +8,8 @@ import 'package:habits10/core/app_strings/app_strings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:habits10/src/features/intro/presentation/sections/on_boarding_section.dart';
 
+import '../../../../../core/utils/app_assets.dart';
+
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
 
@@ -19,7 +21,7 @@ class OnBoardingView extends StatelessWidget {
           context.go(AppRoutes.login);
         }
       },
-      child: const Scaffold(
+      child: Scaffold(
         body: OnBoardingSection(),
       ),
     );
